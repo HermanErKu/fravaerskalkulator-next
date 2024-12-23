@@ -15,6 +15,7 @@ export default async function Page({
   if (!linjeExists) { redirect("/"); } 
 
   const linjeData = await getLinjeData(linje);
+  const sortedLinjeData = Object.values(linjeData.year_data).sort((a, b) => a.year - b.year);
 
   const hasSubLinje = linje.length > 1;
 
@@ -23,7 +24,7 @@ export default async function Page({
       <div className="">
         <h1>{linjeData.name}</h1>
   
-        {Object.values(linjeData.year_data).map((item, key) => (
+        {Object.values(sortedLinjeData).map((item, key) => (
           <SubLinjeCards key={key} linjeData={item} />
         ))}
       </div>

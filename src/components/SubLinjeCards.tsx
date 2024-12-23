@@ -25,7 +25,7 @@ const SubLinjeCards: React.FC<SubLinjeCardsProps> = ({ linjeData /* other props 
   }
 
   return (
-    <Card key={linjeData.id} className="bg-[] rounded-2xl cursor-pointer" onClick={() => handleCardClick(linjeData.id)}>
+    <Card key={linjeData.id} id={"year_"+linjeData.id.toString()} className="bg-[] rounded-2xl cursor-pointer" onClick={() => handleCardClick(linjeData.id)}>
       <CardHeader>
         <CardTitle>{linjeData.name}</CardTitle>
         <CardDescription>{linjeData.year}</CardDescription>

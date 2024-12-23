@@ -12,9 +12,10 @@ export default async function Page({
   const linje = (await params).linje
   const linjeExists = await checkIfLinjeExists(linje);
 
-  if (!linjeExists) { redirect("/"); }
+  if (!linjeExists) { redirect("/"); } 
 
   const linjeData = await getLinjeData(linje);
+  const sortedLinjeData = Object.values(linjeData.year_data).sort((a, b) => a.year - b.year);
 
   const hasSubLinje = linje.length > 1;
 
@@ -22,12 +23,10 @@ export default async function Page({
     return (
       <div className="">
         <h1>{linjeData.name}</h1>
-
-        <div className="grid grid-cols-2 gap-4">
-          {Object.values(linjeData.year_data).map((item, key) => (
-            <SubLinjeCards key={key} linjeData={item} />
-          ))}
-        </div>
+  
+        {Object.values(sortedLinjeData).map((item, key) => (
+          <SubLinjeCards key={key} linjeData={item} />
+        ))}
       </div>
     )
   }
