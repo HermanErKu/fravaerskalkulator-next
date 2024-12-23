@@ -7,7 +7,9 @@ interface YearData {
   name: string;
   id: number,
   fag: number,
-  [key: number]: { name: string; ukeTimer?: number };
+  year: number,
+  [key: number]: { name: string; timer?: number };
+
 }
 
 interface SubLinjeCardsProps {
@@ -26,7 +28,7 @@ const SubLinjeCards: React.FC<SubLinjeCardsProps> = ({ linjeData /* other props 
     <Card key={linjeData.id} className="bg-[] rounded-2xl cursor-pointer" onClick={() => handleCardClick(linjeData.id)}>
       <CardHeader>
         <CardTitle>{linjeData.name}</CardTitle>
-        <CardDescription>{linjeData.fag}</CardDescription>
+        <CardDescription>{linjeData.year}</CardDescription>
       </CardHeader>
     </Card>
 
