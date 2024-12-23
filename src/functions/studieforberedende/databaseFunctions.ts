@@ -65,7 +65,7 @@ const studiefag_data: { [key: number]: StudiefagData } = {
       { 0: { name: "Norsk", ukeTimer: 4 }, 1: { name: "Historie", ukeTimer: 2 }, 2: { name: "Matte", ukeTimer: 3 }, 3: { name: "Fremmedspråk", ukeTimer: 4 }, 4: { name: "Gym", ukeTimer: 2 }, 5: { name: "Programfag fra eget programområde", ukeTimer: 15 }, name: "VG2", fag: 6, id:1 },
       { 0: { name: "Norsk", ukeTimer: 6 }, 1: { name: "Historie", ukeTimer: 4 }, 2: { name: "Religion og etikk", ukeTimer: 3 }, 3: { name: "Gym", ukeTimer: 2 }, 4: { name: "Programfag fra eget programområde", ukeTimer: 10 }, 5: { name: "Valgfritt programfag", ukeTimer: 5 }, name: "VG3", fag: 6, id:2 },
 
-      { 0: { name: "Norsk", ukeTimer: 10 }, 1: { name: "Historie", ukeTimer: 5 }, 2: { name: "Matte", ukeTimer: 5 }, 3: { name: "Naturfag", ukeTimer: 3 }, 4: { name: "Gym", ukeTimer: 2 }, 5: { name: "Valgfritt programfag", ukeTimer: 5 }, name: "Påbygg (VG3)", fag: 6, id:3 },
+      { 0: { name: "Norsk", ukeTimer: 10 }, 1: { name: "Historie", ukeTimer: 5 }, 2: { name: "Matte", ukeTimer: 5 }, 3: { name: "Naturfag", ukeTimer: 3 }, 4: { name: "Gym", ukeTimer: 2 }, 5: { name: "Valgfritt programfag", ukeTimer: 5 }, name: "Påbygg (VG3)", fag: 6, id:0 },
     ]
   },
 }

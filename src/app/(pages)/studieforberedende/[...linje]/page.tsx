@@ -1,8 +1,7 @@
-"use client";
-
 import { checkIfLinjeExists, getLinjeData } from "@/functions/studieforberedende/databaseFunctions";
 import { redirect, usePathname } from 'next/navigation'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card";
+import SubLinjeCards from "@/components/SubLinjeCards";
 
 
 export default async function Page({
@@ -17,23 +16,24 @@ export default async function Page({
 
   const linjeData = await getLinjeData(linje);
 
-  const handleCardClick = (id: number) => {
-    redirect("/"+(id.toString()))
+  const hasSubLinje = linje.length > 1;
+
+  if (!hasSubLinje) {
+    return (
+      <div className="">
+        <h1>{linjeData.name}</h1>
+  
+        {Object.values(linjeData.year_data).map((item, key) => (
+          <SubLinjeCards key={key} linjeData={item} />
+        ))}
+      </div>
+    )
   }
 
   return (
-    <div className="">
-      <h1>{linjeData.name}</h1>
-
-      {Object.values(linjeData.year_data).map((item, key) => (
-          <Card key={item.id} className="bg-[] rounded-2xl cursor-pointer" onClick={() => handleCardClick(item.id)}>
-            <CardHeader>
-              <CardTitle>{item.name}</CardTitle>
-              <CardDescription>{item.fag}</CardDescription>
-            </CardHeader>
-          </Card>
-        ))}
-
+    <div>
+      test
     </div>
+
   )
 }
