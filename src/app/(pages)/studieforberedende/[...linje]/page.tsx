@@ -24,9 +24,7 @@ export default async function Page({
       <div className="">
         <h1>{linjeData.name}</h1>
   
-        {Object.values(sortedLinjeData).map((item, key) => (
-          <SubLinjeCards key={key} linjeData={item} />
-        ))}
+        <SubLinjeCards data={sortedLinjeData} />
       </div>
     )
   }

@@ -12,11 +12,19 @@ interface YearData {
 
 }
 
+interface LinjeData {
+  name: string;
+  year_data: {
+    [key: number]: YearData;
+  };
+};
+
+
 interface SubLinjeCardsProps {
-  linjeData: YearData;
+  data: YearData[];
 }
 
-const SubLinjeCards: React.FC<SubLinjeCardsProps> = ({ linjeData /* other props */ }) => {
+const SubLinjeCards: React.FC<SubLinjeCardsProps> = ({ data }) => {
   const pathname = usePathname()
 
   const handleCardClick = (id: number) => {
@@ -25,13 +33,51 @@ const SubLinjeCards: React.FC<SubLinjeCardsProps> = ({ linjeData /* other props 
   }
 
   return (
-    <Card key={linjeData.id} id={"year_"+linjeData.id.toString()} className="bg-[] rounded-2xl cursor-pointer" onClick={() => handleCardClick(linjeData.id)}>
-      <CardHeader>
-        <CardTitle>{linjeData.name}</CardTitle>
-        <CardDescription>{linjeData.year}</CardDescription>
-      </CardHeader>
-    </Card>
+    <div>
+      <div className="grid grid-cols-2 gap-4">
+        {Object.values(data.filter((filterData) => filterData.year == 1)).map((linjeData) => (
+          <Card key={linjeData.id} id={"year_"+linjeData.id.toString()} className="bg-[] rounded-2xl cursor-pointer" onClick={() => handleCardClick(linjeData.id)}>
+            <CardHeader>  
+              <CardTitle>{linjeData.name}</CardTitle>
+              <CardDescription>{linjeData.year}</CardDescription>
+            </CardHeader>
+          </Card>
+        ))}
+      </div>
 
+      <div className="grid grid-cols-2 gap-4">
+        {Object.values(data.filter((filterData) => filterData.year == 2)).map((linjeData) => (
+          <Card key={linjeData.id} id={"year_"+linjeData.id.toString()} className="bg-[] rounded-2xl cursor-pointer" onClick={() => handleCardClick(linjeData.id)}>
+            <CardHeader>  
+              <CardTitle>{linjeData.name}</CardTitle>
+              <CardDescription>{linjeData.year}</CardDescription>
+            </CardHeader>
+          </Card>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        {Object.values(data.filter((filterData) => filterData.year == 3)).map((linjeData) => (
+          <Card key={linjeData.id} id={"year_"+linjeData.id.toString()} className="bg-[] rounded-2xl cursor-pointer" onClick={() => handleCardClick(linjeData.id)}>
+            <CardHeader>  
+              <CardTitle>{linjeData.name}</CardTitle>
+              <CardDescription>{linjeData.year}</CardDescription>
+            </CardHeader>
+          </Card>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        {Object.values(data.filter((filterData) => filterData.year == 4)).map((linjeData) => (
+          <Card key={linjeData.id} id={"year_"+linjeData.id.toString()} className="bg-[] rounded-2xl cursor-pointer" onClick={() => handleCardClick(linjeData.id)}>
+            <CardHeader>  
+              <CardTitle>{linjeData.name}</CardTitle>
+              <CardDescription>{linjeData.year}</CardDescription>
+            </CardHeader>
+          </Card>
+        ))}
+      </div>
+    </div>
   )
 
 }
