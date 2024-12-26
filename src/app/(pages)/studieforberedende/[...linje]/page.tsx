@@ -2,6 +2,7 @@ import { checkIfLinjeExists, getLinjeData } from "@/functions/studieforberedende
 import { redirect, usePathname } from 'next/navigation'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card";
 import SubLinjeCards from "@/components/SubLinjeCards";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, } from "@/components/ui/breadcrumb"
 
 
 export default async function Page({
@@ -23,7 +24,18 @@ export default async function Page({
     return (
       <div className="">
         <h1>{linjeData.name}</h1>
-  
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Hjem</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{linjeData.name}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+
         <SubLinjeCards data={sortedLinjeData} />
       </div>
     )
@@ -31,6 +43,23 @@ export default async function Page({
 
   return (
     <div>
+      <h1>{linjeData.name}</h1>
+
+      <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Hjem</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href={"/studieforberedende/"+linje[0]}>{linjeData.name}</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{linjeData.year_data[parseInt(linje[1])].name}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
       test
     </div>
 
