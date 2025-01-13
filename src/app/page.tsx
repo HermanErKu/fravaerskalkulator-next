@@ -19,7 +19,7 @@ export default function Home() {
       <div className="grid grid-cols-2 gap-4">
       {studieForberedende.map((item) => (
           <Card key={item.id} className="bg-[] border-solid border-2 border-[#fcc025] rounded-2xl cursor-pointer" onClick={() => handleCardClick(item.description, item.id)}>
-            <CardHeader>
+            <CardHeader className="px-2 py-3 md:px-3 lg:px-6 lg:py-6">
               <CardTitle>{item.name}</CardTitle>
               <CardDescription>{item.description}</CardDescription>
             </CardHeader>
@@ -27,10 +27,12 @@ export default function Home() {
         ))}
       </div>
 
+      <div className="py-4"></div>
+
       <div className="grid grid-cols-2 gap-4">
         {yrkesfag.map((item) => (
           <Card key={item.id} className="bg-[] border-solid border-2 border-[#8ac75a] rounded-2xl cursor-pointer" onClick={() => handleCardClick(item.description, item.id)}>
-            <CardHeader>
+            <CardHeader className="px-2 py-3 md:px-3 lg:px-6 lg:py-6">
               <CardTitle>{item.name}</CardTitle>
               <CardDescription>{item.description}</CardDescription>
             </CardHeader>
