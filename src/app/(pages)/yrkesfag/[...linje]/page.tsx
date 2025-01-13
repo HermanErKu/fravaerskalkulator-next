@@ -3,6 +3,7 @@ import { redirect, usePathname } from 'next/navigation'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card";
 import SubLinjeCards from "@/components/SubLinjeCards";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, } from "@/components/ui/breadcrumb"
+import Calculator from "@/components/Calculator";
 
 
 export default async function Page({
@@ -41,6 +42,8 @@ export default async function Page({
     )
   }
 
+  console.log(sortedLinjeData[parseInt(linje[1])])
+
   return (
     <div>
       <h1>{linjeData.year_data[parseInt(linje[1])].name}</h1>
@@ -60,7 +63,8 @@ export default async function Page({
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-      test
+      
+      <Calculator data={[sortedLinjeData[parseInt(linje[1])]]}/>
     </div>
 
   )
