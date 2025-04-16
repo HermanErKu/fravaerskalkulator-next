@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/opengraph.png",
-        width: 1280,
-        height: 720,
+        width: 428,
+        height: 869,
         alt: "Fraværskalkulator Preview",
       },
     ],
