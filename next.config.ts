@@ -1,12 +1,7 @@
-import type { NextConfig } from "next"
-import withPWA from "next-pwa"
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true
-}
+  /* config options here */
+};
 
-// Wrapp configen med withPWA
-export default withPWA({
-  dest: "public",
-  disable: process.env.NODE_ENV === "development"
-})(nextConfig)
+export default nextConfig;
